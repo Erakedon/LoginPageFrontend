@@ -1,0 +1,104 @@
+@import "../../../variables.scss";
+
+.ContentBlock {
+    position: relative;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: #fff4;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 0px 5px 5px 5px;
+    height: auto;
+    @include standard-box-shadow;
+    transition: 0.5s;
+
+    &:not(.focused) {
+        .description {
+            position: relative;
+            max-height: 20px;
+            white-space: nowrap;
+            cursor: pointer;
+            animation: whiteSpaceDelay 0.5s;
+        }
+    }
+
+    a {
+        color: $text-color;
+    }
+
+    .title {
+        font-size: 1.1em;
+    }
+
+    .imageContainer {
+        width: 200px;
+        height: 200px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+
+            &.mobile {
+                display: none;
+            }
+        }
+    }
+
+    .description {
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 5px;
+        width: 100%;
+        font-size: 0.9em;
+        color: darken($text-color, 20%);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 400px;
+        transition: max-height 0.5s linear;
+    }
+
+    .gradientBackground {
+        position: absolute;
+        top: 0%;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+        background: linear-gradient(to bottom, #fff0, #fff4, #fff0);
+        height: 200%;
+        z-index: -10;
+    }
+
+    &:hover{       
+        transform: rotateX(10deg); 
+        .gradientBackground {
+            top: -100%
+        }
+    }
+}
+
+@keyframes whiteSpaceDelay {
+    0%{white-space: normal;}
+    99%{white-space: normal;}
+    100%{white-space: nowrap;}
+}
+
+@media only screen and(max-width: 700px) {
+    .ContentBlock .imageContainer {
+        height: 100px;
+
+        img {
+            &.mobile {
+                display: initial;
+            }
+            &:not(.mobile) {
+                display: none;
+            }
+        }
+    } 
+}

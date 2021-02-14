@@ -1,0 +1,87 @@
+@import "../../variables.scss";
+
+.LoginPage {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 100vh;
+
+    .loginBox {
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+        
+        @include standard-box-shadow;
+        box-sizing: border-box;
+        border-radius: 10px;
+
+        .header {
+            background-color: #fff4;
+            font-weight: 600;
+            font-size: 1.5em;
+            box-sizing: border-box;
+            border-radius: 10px 10px 0px 0px;
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .loginFormContainer form {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-end;
+            justify-content: center;
+
+            box-sizing: border-box;
+            padding: 10px;
+            width: 280px;
+
+            > div {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: flex-end;
+                justify-content: flex-end;
+            }
+
+            label {
+                margin: 4px;
+            }
+
+            input {
+                margin: 4px;
+                font: inherit;
+                font-size: 0.9em;
+                width: 160px;
+            }
+            .error {
+                color: #e00;
+                font-size: 0.7em;
+                text-align: end;
+                width: 100%;
+            }
+
+            button {
+                font: inherit;
+                font-size: inherit;
+                padding: 2px 20px;
+                margin: 4px;
+                box-sizing: border-box;
+                background-color: #333;
+                color: $text-color;
+                border: none;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #666;
+                }
+
+                &:active {
+                    background-color: #999;
+                }
+            }
+        }
+    }
+}

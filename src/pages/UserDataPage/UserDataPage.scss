@@ -1,0 +1,66 @@
+@import "../../variables.scss";
+
+.UserDataPage {
+    box-sizing: border-box;
+
+    .header {
+        box-sizing: border-box;
+        padding: 5px 20px;
+        background-color: #fff1;
+        width: 100%;
+
+        @include standard-box-shadow;
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+        }
+    }
+
+    .contentGroupsContainer {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;;
+        justify-content: flex-start;
+
+        .contentGroup {
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+
+            .title {
+                align-self: flex-start;
+                font-size: 1.3em;
+                box-sizing: border-box;
+                padding: 15px 10px;
+            }
+            .contentBlocksContainer {
+                display: grid;
+                width: 96%;
+                grid-template-columns: 24% 24% 24% 24%;
+                column-gap: 1.25%;
+                row-gap: 12px;
+            }
+        }
+    }
+}
+
+@media only screen and(max-width: 1024px) {
+    .UserDataPage .contentGroupsContainer .contentGroup .contentBlocksContainer {
+        grid-template-columns: 32% 32% 32% ;
+    }
+}
+
+@media only screen and(max-width: 700px) {
+    .UserDataPage .contentGroupsContainer .contentGroup .contentBlocksContainer {
+        grid-template-columns: 49% 49% ;
+    }
+}
+
+@media only screen and(max-width: 420px) {
+    .UserDataPage .contentGroupsContainer .contentGroup .contentBlocksContainer {
+        grid-template-columns: 100% ;
+    }
+}
